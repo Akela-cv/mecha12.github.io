@@ -1,0 +1,96 @@
+class ClosedLoop:
+    """
+    Implements a closed-loop control system.
+
+    Attributes:
+        errsum (float): The cumulative error sum.
+        L (float): The control signal.
+
+    Methods:
+        __init__(): Initializes the ClosedLoop object with default values for errsum and L.
+        OpenLoop(Setpoint, kp, ki, meas): Placeholder for an open-loop control method.
+        P_Control(Setpoint, kp, ki, meas): Implements a proportional control method.
+        PI_control(Setpoint, kp, ki, meas, errmax): Implements a proportional-integral control method.
+
+    """
+
+    def __init__(self):
+        """
+        Initializes a ClosedLoop object.
+
+        Attributes:
+            errsum (float): The cumulative error sum, initialized to 0.
+            L (float): The control signal, initialized to 0.
+
+        """
+        self.errsum = 0
+        self.L = 0
+
+    def OpenLoop(self, Setpoint, kp, meas):
+        """
+        Placeholder for an open-loop control method.
+
+        Args:
+            Setpoint (float): The desired setpoint for the control system.
+            kp (float): The proportional gain.
+            meas (float): The measured value.
+
+        """
+        pass
+
+    def P_Control(self, Setpoint, kp, ki, meas):
+        """
+        Implements a proportional control method.
+
+        Args:
+            Setpoint (float): The desired setpoint for the control system.
+            kp (float): The proportional gain.
+            ki (float): The integral gain.
+            meas (float): The measured value.
+
+        Returns:
+            float: The control signal calculated using proportional control.
+
+        """
+        self.error = Setpoint - meas
+        self.L = kp * self.error
+
+        # Saturate
+        if abs(self.L) > 100:
+            self.L = 100 if self.L > 100 else -100
+
+        return self.L
+
+    def PI_control(self, Setpoint, kp, ki, meas, errmax):
+        """
+        Implements a proportional-integral control method.
+
+        Args:
+            Setpoint (float): The desired setpoint for the control system.
+            kp (float): The proportional gain.
+            ki (float): The integral gain.
+            meas (float): The measured value.
+            errmax (float): Maximum allowable cumulative error sum.
+
+        Returns:
+            float: The control signal calculated using proportional-integral control.
+
+        """
+        self.error = Setpoint - meas
+        self.errsum = self.errsum + self.error
+
+        # Saturate errsum
+        if abs(self.errsum) > errmax:
+            self.errsum = errmax if self.errsum > 0 else -errmax
+
+        self.L = kp * self.error + ki * self.errsum
+
+        # Saturate
+        if abs(self.L) > 100:
+            self.L = 100 if self.L > 100 else -100
+
+        return self.L
+
+        
+    
+
