@@ -1,0 +1,7 @@
+L6206 module
+============
+
+.. automodule:: L6206
+   :members:
+   :undoc-members:
+   :show-inheritance:
