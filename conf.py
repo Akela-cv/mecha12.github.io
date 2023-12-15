@@ -16,7 +16,7 @@ autodoc_mock_imports = [ 'pyb', 'micropython', 'utime', 'machine']
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.napolean',
+extensions = ['sphinx.ext.napoleon',
               'sphinx.ext.autodoc']
 
 templates_path = ['_templates']
