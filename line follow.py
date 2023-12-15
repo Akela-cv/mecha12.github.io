@@ -10,7 +10,13 @@ from micropython import alloc_emergency_exception_buf
 alloc_emergency_exception_buf(1000)
 
 class Follow_Class:
+    """The line following class
+
+    no properties for this class
+    """
     def __init__(self):
+        """Creates the class, passing in only itself
+        """
         self.state = 0
         
     def Follow(self):
