@@ -9,7 +9,7 @@ import sys, os
 sys.path.insert(0, os.path.abspath('./'))
 project = 'Term Project'
 copyright = '2023, Akela Craviotto-Velasco, Tanner Wells'
-author = 'Akela Craviotto-Velasco, Tanner Wells'
+author = 'Tanner Casey Wells, Akela Craviotto-Velasco'
 
 autodoc_mock_imports = [ 'pyb', 'micropython', 'utime', 'machine']
 

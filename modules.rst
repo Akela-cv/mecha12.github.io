@@ -5,4 +5,3 @@ mecha12.github.io
    :maxdepth: 4
 
    conf
-   encoder
